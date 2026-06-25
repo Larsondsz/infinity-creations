@@ -1,0 +1,6 @@
+{
+  "name": "Infinity Creations",
+  "description": "A premium graphic design and branding studio based in Thane, Maharashtra specializing in bespoke logo design, brand identities, and social media creatives.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
