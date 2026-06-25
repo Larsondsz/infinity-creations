@@ -58,7 +58,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Headline */}
-        <motion.h2
+        <motion.h1
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -68,7 +68,7 @@ export default function Hero() {
           <span className="italic font-light text-gradient bg-gradient-to-r from-[#f2ca50] via-[#ffe088] to-[#d4af37] bg-clip-text text-transparent">
             Leave a Mark
           </span>
-        </motion.h2>
+        </motion.h1>
 
         {/* Subheadline */}
         <motion.p

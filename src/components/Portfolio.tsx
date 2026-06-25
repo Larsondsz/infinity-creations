@@ -118,9 +118,9 @@ export default function Portfolio() {
                 STUDIO FOLIO
               </span>
             </div>
-            <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
               Selected Creations
-            </h3>
+            </h2>
           </div>
 
           {/* Dynamic Placeholder CTA */}
@@ -168,7 +168,7 @@ export default function Portfolio() {
                 <div className="absolute inset-0 bg-[#0f1418]/20 z-10 group-hover:bg-transparent transition-all duration-500" />
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - Premium ${project.category} Design by Infinity Creations`}
                   className="w-full h-full object-cover rounded-sm filter brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-700"
                   referrerPolicy="no-referrer"
                 />
@@ -182,9 +182,9 @@ export default function Portfolio() {
 
               {/* Title & Specs */}
               <div className="flex items-center justify-between">
-                <h4 className="font-display text-xl font-bold text-white group-hover:text-[#f2ca50] transition-colors">
+                <h3 className="font-display text-xl font-bold text-white group-hover:text-[#f2ca50] transition-colors">
                   {project.title}
-                </h4>
+                </h3>
                 <span className="font-mono text-[10px] tracking-widest text-[#99907c] uppercase">
                   {project.year}
                 </span>
@@ -338,7 +338,7 @@ export default function Portfolio() {
                 <div className="md:w-1/2 aspect-square md:aspect-auto md:min-h-full overflow-hidden relative">
                   <img
                     src={selectedProject.image}
-                    alt={selectedProject.title}
+                    alt={`${selectedProject.title} Case Study - ${selectedProject.category} Graphic Design`}
                     className="w-full h-full object-cover filter brightness-90"
                     referrerPolicy="no-referrer"
                   />
@@ -350,9 +350,9 @@ export default function Portfolio() {
                   <span className="font-mono text-[10px] tracking-[0.25em] text-[#f2ca50] uppercase mb-2 block">
                     {selectedProject.category}
                   </span>
-                  <h4 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-none">
+                  <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-none">
                     {selectedProject.title}
-                  </h4>
+                  </h3>
 
                   {/* Metadata block */}
                   <div className="grid grid-cols-2 gap-4 py-4 border-y border-white/[0.06] mb-6">
@@ -373,14 +373,14 @@ export default function Portfolio() {
                   {/* Challenge & Solution */}
                   <div className="space-y-6">
                     <div>
-                      <h5 className="font-mono text-[10px] tracking-widest text-[#f2ca50] uppercase mb-2">The Challenge</h5>
+                      <h4 className="font-mono text-[10px] tracking-widest text-[#f2ca50] uppercase mb-2">The Challenge</h4>
                       <p className="text-xs sm:text-sm text-[#dfe3e9] leading-relaxed font-sans font-light">
                         {selectedProject.challenge}
                       </p>
                     </div>
 
                     <div>
-                      <h5 className="font-mono text-[10px] tracking-widest text-[#f2ca50] uppercase mb-2">The Solution</h5>
+                      <h4 className="font-mono text-[10px] tracking-widest text-[#f2ca50] uppercase mb-2">The Solution</h4>
                       <p className="text-xs sm:text-sm text-[#dfe3e9] leading-relaxed font-sans font-light">
                         {selectedProject.solution}
                       </p>
@@ -388,7 +388,7 @@ export default function Portfolio() {
 
                     {/* Services Delivered */}
                     <div>
-                      <h5 className="font-mono text-[10px] tracking-widest text-[#f2ca50] uppercase mb-3">Deliverables</h5>
+                      <h4 className="font-mono text-[10px] tracking-widest text-[#f2ca50] uppercase mb-3">Deliverables</h4>
                       <div className="flex flex-wrap gap-2">
                         {selectedProject.servicesProvided.map((serv, idx) => (
                           <span

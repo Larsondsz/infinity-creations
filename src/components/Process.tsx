@@ -72,9 +72,9 @@ export default function Process() {
               METHODOLOGY
             </span>
           </div>
-          <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
             Our Infinite Loop
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-[#99907c] max-w-xl font-sans font-light leading-relaxed">
             A ritualistic six-step timeline designed to ensure absolute graphic perfection and elite brand alignment.
           </p>
@@ -106,9 +106,9 @@ export default function Process() {
                         <div className="w-8 h-8 rounded-full bg-[#0a0f13] border border-white/[0.05] flex items-center justify-center">
                           {getStepIcon(index)}
                         </div>
-                        <h4 className="font-display text-lg font-bold text-white tracking-wide">
+                        <h3 className="font-display text-lg font-bold text-white tracking-wide">
                           {step.title}
-                        </h4>
+                        </h3>
                       </div>
                       <p className="text-xs sm:text-sm text-[#99907c] leading-relaxed font-sans font-light">
                         {step.description}

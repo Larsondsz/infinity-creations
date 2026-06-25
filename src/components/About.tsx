@@ -36,7 +36,7 @@ export default function About() {
             <div className="aspect-[4/3] sm:aspect-square overflow-hidden glass-card p-2">
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5KJ4NUtLvI-gE7TrC61cqRa7-mbCBpVXxROvw1tQd8yO4Cd-JXuQSAxeILeZA36mbzOOvEhh-FzOAete6ctbi-64xHbSiqzVgnghmKQ9h5q7ABnhFgNA-hSeEIMNlvq_uOvbBqXVQPFkrn1PcMxayCX7rLj4PSG33nRh0ErH8pQCVPMNKn_yLicSZBx3skWHHyAvw1VtMqbe9r2CnUdYUSWp11amMdDjLfnz48TKlNuAHJknDbu5WHCyIobIQ-524uq02IFvkjRI"
-                alt="Luxury Geometric Architecture Abstract Visual"
+                alt="Infinity Creations Studio - Luxury Geometric Architecture and Graphic Design Visual"
                 className="w-full h-full object-cover rounded-sm filter brightness-90 grayscale hover:grayscale-0 transition-all duration-1000"
                 referrerPolicy="no-referrer"
               />
@@ -67,10 +67,10 @@ export default function About() {
               </span>
             </div>
 
-            <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-8 leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-8 leading-tight">
               An Architectural Approach to{' '}
               <span className="italic font-light text-[#f2ca50]">Visual Linguistics</span>
-            </h3>
+            </h2>
 
             <p className="text-[#dfe3e9] font-sans font-light leading-relaxed mb-6 text-sm sm:text-base">
               Infinity Creations is a creative design studio based in Thane, Maharashtra specializing in branding, logo design, social media design, print design, and visual identity systems.
@@ -87,9 +87,9 @@ export default function About() {
                   <Layers size={18} />
                 </div>
                 <div>
-                  <h4 className="font-mono text-xs tracking-widest text-white uppercase mb-1">
+                  <h3 className="font-mono text-xs tracking-widest text-white uppercase mb-1">
                     Bespoke Craftsmanship
-                  </h4>
+                  </h3>
                   <p className="text-xs text-[#99907c]">
                     Every single line, vertex, and curve is mathematically tailored to represent your exact philosophy.
                   </p>
@@ -101,9 +101,9 @@ export default function About() {
                   <Award size={18} />
                 </div>
                 <div>
-                  <h4 className="font-mono text-xs tracking-widest text-white uppercase mb-1">
+                  <h3 className="font-mono text-xs tracking-widest text-white uppercase mb-1">
                     Quiet Luxury Style
-                  </h4>
+                  </h3>
                   <p className="text-xs text-[#99907c]">
                     Surgical restraint that commands high-end attention and instills absolute client trust.
                   </p>

@@ -25,9 +25,9 @@ export default function Founder() {
               THE MASTERY
             </span>
           </div>
-          <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
             Our Founder
-          </h3>
+          </h2>
         </div>
 
         {/* Premium Luxury Monogram Profile Card (Zero human photos, ultra high-end visual design) */}
@@ -67,9 +67,9 @@ export default function Founder() {
 
           {/* Central Section: Larson Dsouza Name & Title */}
           <div className="text-center my-8 relative z-10 flex flex-col items-center">
-            <h4 className="font-display text-4xl sm:text-5xl font-extrabold tracking-[0.12em] text-white uppercase leading-none mb-4">
+            <h3 className="font-display text-4xl sm:text-5xl font-extrabold tracking-[0.12em] text-white uppercase leading-none mb-4">
               Larson Dsouza
-            </h4>
+            </h3>
             
             <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#f2ca50] to-transparent mb-4" />
             

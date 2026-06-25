@@ -111,9 +111,9 @@ export default function Services() {
               CAPABILITIES
             </span>
           </div>
-          <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
             Bespoke Services
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-[#99907c] max-w-xl font-sans font-light leading-relaxed">
             Every service is executed with rigorous geometric discipline to elevate your brand to the absolute peak of prestige.
           </p>
@@ -137,9 +137,9 @@ export default function Services() {
                 </div>
 
                 {/* Service Title */}
-                <h4 className="font-display text-xl font-semibold text-white tracking-wide mb-4">
+                <h3 className="font-display text-xl font-semibold text-white tracking-wide mb-4">
                   {service.title}
-                </h4>
+                </h3>
 
                 {/* Service Description */}
                 <p className="text-xs text-[#99907c] leading-relaxed mb-6 font-sans">

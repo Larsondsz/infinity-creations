@@ -42,10 +42,10 @@ export default function Contact() {
                   INQUIRE
                 </span>
               </div>
-              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-8">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-8">
                 Let's Architect{' '}
                 <span className="italic font-light text-[#f2ca50]">Your Legacy</span>
-              </h3>
+              </h2>
 
               {/* Contact Metadata cards */}
               <div className="space-y-6 mb-12">
@@ -111,9 +111,9 @@ export default function Contact() {
               </div>
 
               <div className="relative z-10">
-                <h5 className="font-display text-sm font-bold text-white tracking-widest uppercase">
+                <h3 className="font-display text-sm font-bold text-white tracking-widest uppercase">
                   Thane Headquarters
-                </h5>
+                </h3>
                 <p className="font-mono text-[9px] text-[#99907c] uppercase mt-1">
                   MH // 19.2183° N, 72.9781° E
                 </p>
@@ -232,9 +232,9 @@ export default function Contact() {
                     className="flex flex-col items-center justify-center text-center h-full py-16"
                   >
                     <CheckCircle2 size={64} className="text-[#f2ca50] mb-6 animate-bounce" />
-                    <h4 className="font-display text-2xl font-bold text-white mb-4">
+                    <h3 className="font-display text-2xl font-bold text-white mb-4">
                       Inquiry Transmitted Successfully
-                    </h4>
+                    </h3>
                     <p className="text-xs sm:text-sm text-[#99907c] max-w-sm leading-relaxed mb-8">
                       Dear {name}, thank you for choosing Infinity Creations. Larson Dsouza will review your project philosophy and contact you within 24 hours.
                     </p>
