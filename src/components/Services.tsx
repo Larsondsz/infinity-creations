@@ -80,34 +80,34 @@ export default function Services() {
   // Helper to render Lucide Icons by name
   const renderIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Feather': return <Feather size={24} className="text-[#f2ca50]" />;
-      case 'Layers': return <Layers size={24} className="text-[#f2ca50]" />;
-      case 'Share2': return <Share2 size={24} className="text-[#f2ca50]" />;
-      case 'Contact': return <Contact size={24} className="text-[#f2ca50]" />;
-      case 'Files': return <Files size={24} className="text-[#f2ca50]" />;
-      case 'Image': return <Image size={24} className="text-[#f2ca50]" />;
-      case 'Package': return <Package size={24} className="text-[#f2ca50]" />;
-      case 'Megaphone': return <Megaphone size={24} className="text-[#f2ca50]" />;
-      default: return <Sparkles size={24} className="text-[#f2ca50]" />;
+      case 'Feather': return <Feather size={24} className="text-[#7c5cfc]" />;
+      case 'Layers': return <Layers size={24} className="text-[#7c5cfc]" />;
+      case 'Share2': return <Share2 size={24} className="text-[#7c5cfc]" />;
+      case 'Contact': return <Contact size={24} className="text-[#7c5cfc]" />;
+      case 'Files': return <Files size={24} className="text-[#7c5cfc]" />;
+      case 'Image': return <Image size={24} className="text-[#7c5cfc]" />;
+      case 'Package': return <Package size={24} className="text-[#7c5cfc]" />;
+      case 'Megaphone': return <Megaphone size={24} className="text-[#7c5cfc]" />;
+      default: return <Sparkles size={24} className="text-[#7c5cfc]" />;
     }
   };
 
   return (
     <section
       id="services"
-      className="relative py-24 sm:py-32 px-6 sm:px-12 md:px-24 bg-[#0f1418] overflow-hidden"
+      className="relative py-24 sm:py-32 px-6 sm:px-12 md:px-24 bg-[#050508] overflow-hidden"
     >
       {/* Infinity shape faint outline background */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-[#f2ca50]/2 blur-[100px] pointer-events-none -z-10" />
-      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] rounded-full bg-[#d4af37]/1 blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-[#7c5cfc]/2 blur-[100px] pointer-events-none -z-10" />
+      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] rounded-full bg-[#c084fc]/1 blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         
         {/* Header section */}
         <div className="flex flex-col items-center text-center mb-20">
           <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles size={14} className="text-[#f2ca50]" />
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#f2ca50]">
+            <Sparkles size={14} className="text-[#7c5cfc]" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#7c5cfc]">
               CAPABILITIES
             </span>
           </div>
@@ -128,11 +128,11 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.8, delay: index * 0.05, ease: 'easeOut' }}
-              className="glass-card p-8 inner-glow flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 relative group"
+              className="glass-card p-8 inner-glow flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 bg-[#0d0d14]/50 border-white/[0.05] relative group"
             >
               <div>
                 {/* Icon Circle */}
-                <div className="w-12 h-12 rounded-full border border-white/[0.05] group-hover:border-[#f2ca50]/50 flex items-center justify-center mb-8 bg-[#0a0f13] shadow-[inset_1px_1px_0px_rgba(255,255,255,0.05)] transition-all duration-300">
+                <div className="w-12 h-12 rounded-full border border-white/[0.05] group-hover:border-[#7c5cfc]/50 flex items-center justify-center mb-8 bg-[#050508] shadow-[inset_1px_1px_0px_rgba(255,255,255,0.05)] transition-all duration-300">
                   {renderIcon(service.icon)}
                 </div>
 
@@ -142,7 +142,7 @@ export default function Services() {
                 </h3>
 
                 {/* Service Description */}
-                <p className="text-xs text-[#99907c] leading-relaxed mb-6 font-sans">
+                <p className="text-xs text-[#99907c] leading-relaxed mb-6 font-sans font-light">
                   {service.description}
                 </p>
               </div>
@@ -151,8 +151,8 @@ export default function Services() {
               <div className="border-t border-white/[0.04] pt-4 mt-2">
                 <ul className="space-y-2">
                   {service.details.slice(0, 3).map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-[10px] font-mono text-[#d0c5af] tracking-wide uppercase opacity-70 group-hover:opacity-100 transition-opacity">
-                      <span className="w-1 h-1 rounded-full bg-[#f2ca50]" />
+                    <li key={idx} className="flex items-center gap-2 text-[10px] font-mono text-[#dfe3e9]/70 tracking-wide uppercase opacity-70 group-hover:opacity-100 transition-opacity">
+                      <span className="w-1 h-1 rounded-full bg-[#7c5cfc]" />
                       {item}
                     </li>
                   ))}
@@ -160,8 +160,8 @@ export default function Services() {
               </div>
 
               {/* Decorative border vector glow */}
-              <div className="absolute top-0 right-0 w-2 h-[1px] bg-[#f2ca50]/0 group-hover:bg-[#f2ca50]/100 transition-all duration-500" />
-              <div className="absolute top-0 right-0 h-2 w-[1px] bg-[#f2ca50]/0 group-hover:bg-[#f2ca50]/100 transition-all duration-500" />
+              <div className="absolute top-0 right-0 w-2 h-[1px] bg-[#7c5cfc]/0 group-hover:bg-[#7c5cfc]/100 transition-all duration-500" />
+              <div className="absolute top-0 right-0 h-2 w-[1px] bg-[#7c5cfc]/0 group-hover:bg-[#7c5cfc]/100 transition-all duration-500" />
             </motion.div>
           ))}
         </div>

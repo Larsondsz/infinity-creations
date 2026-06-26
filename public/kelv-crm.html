@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KelvCRM — Customer Records Manager</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050508;
+            color: #dfe3e9;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .glass-card {
+            background: rgba(13, 13, 20, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-accent {
+            box-shadow: 0 0 30px rgba(124, 92, 252, 0.15);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#050508]">
+
+    <!-- Navbar -->
+    <header class="border-b border-white/[0.05] bg-[#050508]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#7c5cfc] to-[#9c84ff] flex items-center justify-center text-white font-bold">
+                    C
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold tracking-tight text-white leading-none">KelvCRM</h1>
+                    <span class="text-[9px] font-mono tracking-widest text-[#7c5cfc] uppercase">Customer Records</span>
+                </div>
+            </div>
+            <div class="text-xs font-mono text-slate-400">
+                Active Vault: <span class="text-emerald-400">Secure Client DB</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 space-y-6">
+
+        <!-- Welcome section -->
+        <div class="glass-card p-6 rounded-xl border border-white/[0.04] glow-accent flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <h2 class="text-xl font-bold text-white mb-1">Customer Relationship Management</h2>
+                <p class="text-xs text-slate-400">Track prospective leads, customer accounts, and interactions pipelines.</p>
+            </div>
+            <button onclick="openModal()" class="px-4 py-2.5 bg-[#7c5cfc] hover:bg-[#6344df] text-white text-xs font-mono tracking-wider uppercase font-semibold rounded-lg transition-all flex items-center gap-2 shadow-lg shadow-[#7c5cfc]/20 cursor-pointer">
+                <i class="fa-solid fa-user-plus"></i> New Customer
+            </button>
+        </div>
+
+        <!-- Sales Pipeline Kanban Metrics -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4" id="pipelineStats">
+            <div class="glass-card p-4 rounded-xl border border-white/[0.04] border-l-4 border-indigo-500">
+                <span class="text-[9px] font-mono uppercase text-slate-400 block tracking-widest">Lead Stage</span>
+                <div class="flex justify-between items-end mt-2">
+                    <h3 id="stageLeadCount" class="text-xl font-bold text-white">0</h3>
+                    <span class="text-[10px] text-indigo-400 font-mono">Prospects</span>
+                </div>
+            </div>
+            <div class="glass-card p-4 rounded-xl border border-white/[0.04] border-l-4 border-amber-500">
+                <span class="text-[9px] font-mono uppercase text-slate-400 block tracking-widest">In Discussion</span>
+                <div class="flex justify-between items-end mt-2">
+                    <h3 id="stageDiscussionCount" class="text-xl font-bold text-white">0</h3>
+                    <span class="text-[10px] text-amber-400 font-mono">Contacted</span>
+                </div>
+            </div>
+            <div class="glass-card p-4 rounded-xl border border-white/[0.04] border-l-4 border-purple-500">
+                <span class="text-[9px] font-mono uppercase text-slate-400 block tracking-widest">Proposal Sent</span>
+                <div class="flex justify-between items-end mt-2">
+                    <h3 id="stageProposalCount" class="text-xl font-bold text-white">0</h3>
+                    <span class="text-[10px] text-purple-400 font-mono">Awaiting Info</span>
+                </div>
+            </div>
+            <div class="glass-card p-4 rounded-xl border border-white/[0.04] border-l-4 border-emerald-500">
+                <span class="text-[9px] font-mono uppercase text-slate-400 block tracking-widest">Deals Won</span>
+                <div class="flex justify-between items-end mt-2">
+                    <h3 id="stageWonCount" class="text-xl font-bold text-white">0</h3>
+                    <span class="text-[10px] text-emerald-400 font-mono">Converted</span>
+                </div>
+            </div>
+            <div class="glass-card p-4 rounded-xl border border-white/[0.04] border-l-4 border-rose-500">
+                <span class="text-[9px] font-mono uppercase text-slate-400 block tracking-widest">Lost / Dormant</span>
+                <div class="flex justify-between items-end mt-2">
+                    <h3 id="stageLostCount" class="text-xl font-bold text-white">0</h3>
+                    <span class="text-[10px] text-rose-400 font-mono">Unresponsive</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Directory Grid / Table -->
+        <div class="glass-card rounded-xl border border-white/[0.04] overflow-hidden">
+            <div class="p-6 border-b border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/[0.01]">
+                <div class="relative w-full sm:max-w-xs">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 pointer-events-none">
+                        <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                    </span>
+                    <input type="text" id="searchInput" oninput="filterCustomers()" placeholder="Search clients, companies, emails..." class="w-full bg-[#050508]/80 border border-white/5 focus:border-[#7c5cfc] focus:ring-1 focus:ring-[#7c5cfc]/20 rounded-lg pl-9 pr-4 py-2 text-xs text-white focus:outline-none">
+                </div>
+                <div class="flex items-center gap-2 self-end sm:self-auto">
+                    <select id="stageFilter" onchange="filterCustomers()" class="bg-[#050508]/80 border border-white/5 focus:border-[#7c5cfc] rounded-lg px-3 py-2 text-xs text-slate-300 focus:outline-none">
+                        <option value="All">All Stages</option>
+                        <option value="Lead">Lead</option>
+                        <option value="Discussion">Discussion</option>
+                        <option value="Proposal">Proposal</option>
+                        <option value="Won">Won</option>
+                        <option value="Lost">Lost</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-[#0c0c13] text-slate-400 border-b border-white/[0.04] font-mono uppercase tracking-wider text-[10px]">
+                        <tr>
+                            <th class="p-4">Customer Name</th>
+                            <th class="p-4">Company</th>
+                            <th class="p-4">Contact Info</th>
+                            <th class="p-4">Est. Deal Size</th>
+                            <th class="p-4">Pipeline Stage</th>
+                            <th class="p-4">Last Activity</th>
+                            <th class="p-4 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTableBody" class="divide-y divide-white/[0.02]">
+                        <!-- Dynamic rows -->
+                    </tbody>
+                </table>
+                <div id="noRecords" class="hidden p-12 text-center text-slate-500">
+                    <i class="fa-solid fa-address-book text-3xl mb-3 block text-slate-600"></i>
+                    No customers found in directory.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Slide-in Modal Form -->
+    <div id="customerModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-[#0d0d14] border border-white/[0.06] rounded-xl w-full max-w-lg p-6 sm:p-8 relative shadow-2xl scale-95 transition-transform duration-300" id="modalContainer">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full border border-white/5 flex items-center justify-center text-slate-400 hover:text-white transition-colors cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-lg font-bold text-white mb-2">Create Customer Record</h3>
+            <p class="text-xs text-slate-400 mb-6 font-mono uppercase tracking-wider text-[9px] text-[#7c5cfc]">KelvCRM Registry</p>
+
+            <form id="customerForm" onsubmit="saveCustomer(event)" class="space-y-4">
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-mono tracking-widest uppercase text-slate-400">Full Name</label>
+                    <input type="text" id="custName" required placeholder="e.g. Larson Dsouza" class="w-full bg-[#050508] border border-white/5 focus:border-[#7c5cfc] rounded-lg p-3 text-xs text-white focus:outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-mono tracking-widest uppercase text-slate-400">Company</label>
+                        <input type="text" id="custCompany" required placeholder="e.g. Infinity Creations" class="w-full bg-[#050508] border border-white/5 focus:border-[#7c5cfc] rounded-lg p-3 text-xs text-white focus:outline-none">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-mono tracking-widest uppercase text-slate-400">Email Address</label>
+                        <input type="email" id="custEmail" required placeholder="e.g. larson@example.com" class="w-full bg-[#050508] border border-white/5 focus:border-[#7c5cfc] rounded-lg p-3 text-xs text-white focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-mono tracking-widest uppercase text-slate-400">Phone</label>
+                        <input type="text" id="custPhone" placeholder="e.g. +91 8275997461" class="w-full bg-[#050508] border border-white/5 focus:border-[#7c5cfc] rounded-lg p-3 text-xs text-white focus:outline-none">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-mono tracking-widest uppercase text-slate-400">Est. Deal Value (₹)</label>
+                        <input type="number" id="custValue" required placeholder="e.g. 120000" class="w-full bg-[#050508] border border-white/5 focus:border-[#7c5cfc] rounded-lg p-3 text-xs text-white focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-mono tracking-widest uppercase text-slate-400">Pipeline Stage</label>
+                        <select id="custStage" class="w-full bg-[#050508] border border-white/5 focus:border-[#7c5cfc] rounded-lg p-3 text-xs text-white focus:outline-none">
+                            <option value="Lead">Lead</option>
+                            <option value="Discussion">Discussion</option>
+                            <option value="Proposal">Proposal</option>
+                            <option value="Won">Won</option>
+                            <option value="Lost">Lost</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-mono tracking-widest uppercase text-slate-400">Last Activity</label>
+                        <input type="text" id="custActivity" required placeholder="e.g. Email discussion" class="w-full bg-[#050508] border border-white/5 focus:border-[#7c5cfc] rounded-lg p-3 text-xs text-white focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" class="w-full py-3 bg-[#7c5cfc] hover:bg-[#6344df] text-white text-xs font-mono tracking-wider uppercase font-bold rounded-lg transition-colors cursor-pointer shadow-lg shadow-[#7c5cfc]/20">
+                        Commit Customer Record
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/[0.05] bg-[#050508] py-6 text-center text-[10px] font-mono text-slate-500">
+        &copy; 2026 KelvCRM. Ledger encrypted, powered by Infinity Creations.
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        let db = JSON.parse(localStorage.getItem('kelv_crm_data')) || [
+            { name: 'Larson Dsouza', company: 'Infinity Creations', email: 'larsondsouza14@gmail.com', phone: '+91 8275997461', value: 250000, stage: 'Won', activity: 'Inked branding retainer contract' },
+            { name: 'Kelvin Warehousing', company: 'Kelvin Logi Corp', email: 'operations@kelvinware.in', phone: '+91 9820011223', value: 450000, stage: 'Won', activity: 'Brand handbook delivered' },
+            { name: 'Shivansh Shinde', company: 'Shivansh Tours', email: 'shivanshtour@travels.com', phone: '+91 7720055441', value: 180000, stage: 'Proposal', activity: 'Draft pitch deck sent' },
+            { name: 'Reena Nair', company: 'Nair FinServe', email: 'reena@nairfins.com', phone: '+91 8812044552', value: 95000, stage: 'Discussion', activity: 'Initial briefing call' }
+        ];
+
+        function saveToStorage() {
+            localStorage.setItem('kelv_crm_data', JSON.stringify(db));
+        }
+
+        function calculateMetrics() {
+            const counts = { Lead: 0, Discussion: 0, Proposal: 0, Won: 0, Lost: 0 };
+            db.forEach(item => {
+                if (counts[item.stage] !== undefined) {
+                    counts[item.stage]++;
+                }
+            });
+
+            document.getElementById('stageLeadCount').innerText = counts.Lead;
+            document.getElementById('stageDiscussionCount').innerText = counts.Discussion;
+            document.getElementById('stageProposalCount').innerText = counts.Proposal;
+            document.getElementById('stageWonCount').innerText = counts.Won;
+            document.getElementById('stageLostCount').innerText = counts.Lost;
+        }
+
+        function renderTable(data = db) {
+            const tbody = document.getElementById('customerTableBody');
+            const noRecords = document.getElementById('noRecords');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                noRecords.classList.remove('hidden');
+                return;
+            }
+            noRecords.classList.add('hidden');
+
+            data.forEach((item, idx) => {
+                let stageClass = '';
+                if (item.stage === 'Lead') stageClass = 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20';
+                else if (item.stage === 'Discussion') stageClass = 'bg-amber-500/10 text-amber-400 border border-amber-500/20';
+                else if (item.stage === 'Proposal') stageClass = 'bg-purple-500/10 text-purple-400 border border-purple-500/20';
+                else if (item.stage === 'Won') stageClass = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+                else if (item.stage === 'Lost') stageClass = 'bg-rose-500/10 text-rose-400 border border-rose-500/20';
+
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-white/[0.01] transition-colors';
+                tr.innerHTML = `
+                    <td class="p-4 font-semibold text-white">${item.name}</td>
+                    <td class="p-4 text-slate-300 font-medium">${item.company}</td>
+                    <td class="p-4">
+                        <div class="text-slate-300">${item.email}</div>
+                        <div class="text-[10px] text-slate-500 font-mono">${item.phone || 'No phone'}</div>
+                    </td>
+                    <td class="p-4 font-bold text-slate-300">₹${item.value.toLocaleString('en-IN')}</td>
+                    <td class="p-4">
+                        <span class="px-2.5 py-1 rounded-full text-[9px] font-mono uppercase tracking-wide inline-block ${stageClass}">
+                            ${item.stage}
+                        </span>
+                    </td>
+                    <td class="p-4 text-slate-400 italic">${item.activity}</td>
+                    <td class="p-4 text-right">
+                        <button onclick="deleteCustomer('${item.email}')" class="text-slate-500 hover:text-rose-400 transition-colors p-2 cursor-pointer">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function filterCustomers() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            const stage = document.getElementById('stageFilter').value;
+
+            let filtered = db.filter(item => {
+                const matchesQ = item.name.toLowerCase().includes(q) || item.company.toLowerCase().includes(q) || item.email.toLowerCase().includes(q);
+                const matchesStage = stage === 'All' || item.stage === stage;
+                return matchesQ && matchesStage;
+            });
+
+            renderTable(filtered);
+        }
+
+        function openModal() {
+            const modal = document.getElementById('customerModal');
+            const container = document.getElementById('modalContainer');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            container.classList.remove('scale-95');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('customerModal');
+            const container = document.getElementById('modalContainer');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            container.classList.add('scale-95');
+            document.getElementById('customerForm').reset();
+        }
+
+        function saveCustomer(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value;
+            const company = document.getElementById('custCompany').value;
+            const email = document.getElementById('custEmail').value;
+            const phone = document.getElementById('custPhone').value;
+            const value = parseFloat(document.getElementById('custValue').value);
+            const stage = document.getElementById('custStage').value;
+            const activity = document.getElementById('custActivity').value;
+
+            const existingIdx = db.findIndex(item => item.email === email);
+            if (existingIdx > -1) {
+                db[existingIdx] = { name, company, email, phone, value, stage, activity };
+            } else {
+                db.push({ name, company, email, phone, value, stage, activity });
+            }
+
+            saveToStorage();
+            calculateMetrics();
+            renderTable();
+            closeModal();
+        }
+
+        function deleteCustomer(email) {
+            if (confirm('Are you sure you want to delete customer with email ' + email + '?')) {
+                db = db.filter(item => item.email !== email);
+                saveToStorage();
+                calculateMetrics();
+                renderTable();
+            }
+        }
+
+        // Init
+        calculateMetrics();
+        renderTable();
+    </script>
+</body>
+</html>

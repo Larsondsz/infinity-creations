@@ -16,19 +16,42 @@ export default function Contact() {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !email.trim()) return;
+    if (!name.trim() || !email.trim() || !msg.trim()) return;
 
-    // Simulate luxury API transmit
+    const formattedMessage = `🚀 New Project Inquiry
+
+👤 Name:
+${name.trim()}
+
+📧 Email:
+${email.trim()}
+
+🎯 Service:
+${service}
+
+📝 Project Details:
+${msg.trim()}
+
+Sent from:
+Infinity Creations Website`;
+
+    const encodedText = encodeURIComponent(formattedMessage);
+    const whatsappUrl = `https://wa.me/918275997461?text=${encodedText}`;
+
+    // Automatically open WhatsApp (or WhatsApp Web on desktop) with the pre-filled message
+    window.open(whatsappUrl, '_blank');
+
+    // Show success confirmation screen
     setFormSubmitted(true);
   };
 
   return (
     <section
       id="contact"
-      className="relative py-24 sm:py-32 px-6 sm:px-12 md:px-24 bg-[#0f1418] overflow-hidden"
+      className="relative py-24 sm:py-32 px-6 sm:px-12 md:px-24 bg-[#050508] overflow-hidden"
     >
-      {/* Visual gold lines intersecting card */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#f2ca50]/2 blur-[100px] pointer-events-none -z-10" />
+      {/* Visual purple lines intersecting card */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#7c5cfc]/2 blur-[100px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-stretch">
@@ -37,45 +60,45 @@ export default function Contact() {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 mb-4">
-                <Sparkles size={14} className="text-[#f2ca50]" />
-                <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#f2ca50]">
+                <Sparkles size={14} className="text-[#7c5cfc]" />
+                <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#7c5cfc]">
                   INQUIRE
                 </span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-8">
                 Let's Architect{' '}
-                <span className="italic font-light text-[#f2ca50]">Your Legacy</span>
+                <span className="italic font-light text-[#7c5cfc]">Your Legacy</span>
               </h2>
 
               {/* Contact Metadata cards */}
               <div className="space-y-6 mb-12">
                 <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 rounded-full border border-white/[0.05] group-hover:border-[#f2ca50]/40 flex items-center justify-center bg-[#0a0f13] transition-colors duration-300">
-                    <Mail className="text-[#f2ca50]" size={16} />
+                  <div className="w-12 h-12 rounded-full border border-white/[0.05] group-hover:border-[#7c5cfc]/40 flex items-center justify-center bg-[#0d0d14] transition-colors duration-300">
+                    <Mail className="text-[#7c5cfc]" size={16} />
                   </div>
                   <div>
                     <p className="font-mono text-[9px] tracking-widest text-[#99907c] uppercase">Direct Dispatch</p>
-                    <a href="mailto:infinitycreation27@gmail.com" className="text-sm text-white hover:text-[#f2ca50] transition-colors font-light">
+                    <a href="mailto:infinitycreation27@gmail.com" className="text-sm text-white hover:text-[#7c5cfc] transition-colors font-light">
                       infinitycreation27@gmail.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 rounded-full border border-white/[0.05] group-hover:border-[#f2ca50]/40 flex items-center justify-center bg-[#0a0f13] transition-colors duration-300">
-                    <Phone className="text-[#f2ca50]" size={16} />
+                  <div className="w-12 h-12 rounded-full border border-white/[0.05] group-hover:border-[#7c5cfc]/40 flex items-center justify-center bg-[#0d0d14] transition-colors duration-300">
+                    <Phone className="text-[#7c5cfc]" size={16} />
                   </div>
                   <div>
                     <p className="font-mono text-[9px] tracking-widest text-[#99907c] uppercase">Secure Direct Line</p>
-                    <a href="tel:+918275997461" className="text-sm text-white hover:text-[#f2ca50] transition-colors font-light">
+                    <a href="tel:+918275997461" className="text-sm text-white hover:text-[#7c5cfc] transition-colors font-light">
                       +91 8275997461
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 rounded-full border border-white/[0.05] group-hover:border-[#f2ca50]/40 flex items-center justify-center bg-[#0a0f13] transition-colors duration-300">
-                    <MapPin className="text-[#f2ca50]" size={16} />
+                  <div className="w-12 h-12 rounded-full border border-white/[0.05] group-hover:border-[#7c5cfc]/40 flex items-center justify-center bg-[#0d0d14] transition-colors duration-300">
+                    <MapPin className="text-[#7c5cfc]" size={16} />
                   </div>
                   <div>
                     <p className="font-mono text-[9px] tracking-widest text-[#99907c] uppercase">Studio Headquarters</p>
@@ -88,26 +111,26 @@ export default function Contact() {
             </div>
 
             {/* Custom Interactive Vector Map Placeholder representing Thane */}
-            <div className="w-full h-48 glass-card border border-white/[0.05] rounded-sm p-4 relative overflow-hidden flex flex-col justify-between mb-8 group select-none">
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f2ca50_1px,transparent_1px)] [background-size:12px_12px]" />
+            <div className="w-full h-48 glass-card border border-white/[0.05] rounded-sm p-4 relative overflow-hidden flex flex-col justify-between mb-8 group select-none bg-[#0d0d14]/40">
+              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#7c5cfc_1px,transparent_1px)] [background-size:12px_12px]" />
               
               {/* Fake coordinate line grid mapping of Thane */}
               <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="10%" y1="0" x2="10%" y2="100%" stroke="#f2ca50" strokeWidth="0.5" />
-                <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#f2ca50" strokeWidth="0.5" />
-                <line x1="90%" y1="0" x2="90%" y2="100%" stroke="#f2ca50" strokeWidth="0.5" />
-                <line x1="0" y1="30%" x2="100%" y2="30%" stroke="#f2ca50" strokeWidth="0.5" />
-                <line x1="0" y1="70%" x2="100%" y2="70%" stroke="#f2ca50" strokeWidth="0.5" />
+                <line x1="10%" y1="0" x2="10%" y2="100%" stroke="#7c5cfc" strokeWidth="0.5" />
+                <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#7c5cfc" strokeWidth="0.5" />
+                <line x1="90%" y1="0" x2="90%" y2="100%" stroke="#7c5cfc" strokeWidth="0.5" />
+                <line x1="0" y1="30%" x2="100%" y2="30%" stroke="#7c5cfc" strokeWidth="0.5" />
+                <line x1="0" y1="70%" x2="100%" y2="70%" stroke="#7c5cfc" strokeWidth="0.5" />
                 {/* Center radar ring target */}
-                <circle cx="50%" cy="50%" r="30" stroke="#f2ca50" strokeWidth="0.75" fill="none" className="animate-ping" style={{ animationDuration: '4s' }} />
-                <circle cx="50%" cy="50%" r="6" fill="#f2ca50" />
+                <circle cx="50%" cy="50%" r="30" stroke="#7c5cfc" strokeWidth="0.75" fill="none" className="animate-ping" style={{ animationDuration: '4s' }} />
+                <circle cx="50%" cy="50%" r="6" fill="#7c5cfc" />
               </svg>
 
               <div className="flex items-center justify-between relative z-10">
                 <span className="font-mono text-[8px] tracking-[0.3em] text-[#99907c] uppercase">
                   Cartographical Coordinates
                 </span>
-                <span className="w-2 h-2 rounded-full bg-[#f2ca50] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#7c5cfc] animate-pulse" />
               </div>
 
               <div className="relative z-10">
@@ -123,11 +146,11 @@ export default function Contact() {
             {/* Micro Counter Stats */}
             <div className="grid grid-cols-2 gap-4">
               <div className="border-l border-white/[0.08] pl-4">
-                <span className="font-display text-2xl font-bold text-[#f2ca50] block">100%</span>
+                <span className="font-display text-2xl font-bold text-[#7c5cfc] block">100%</span>
                 <span className="font-mono text-[8px] tracking-widest text-[#99907c] uppercase">Bespoke Design Rate</span>
               </div>
               <div className="border-l border-white/[0.08] pl-4">
-                <span className="font-display text-2xl font-bold text-[#f2ca50] block">4.9★</span>
+                <span className="font-display text-2xl font-bold text-[#7c5cfc] block">4.9★</span>
                 <span className="font-mono text-[8px] tracking-widest text-[#99907c] uppercase">Client Trust Rating</span>
               </div>
             </div>
@@ -140,7 +163,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 1 }}
-              className="glass-card p-8 sm:p-12 inner-glow flex flex-col justify-between h-full"
+              className="glass-card p-8 sm:p-12 inner-glow flex flex-col justify-between h-full bg-[#0d0d14]/40 border-white/[0.05]"
             >
               <AnimatePresence mode="wait">
                 {!formSubmitted ? (
@@ -163,7 +186,7 @@ export default function Contact() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Larson Dsouza"
-                        className="w-full bg-[#0a0f13] border-none border-b border-white/10 focus:border-[#f2ca50] focus:ring-0 transition-all duration-300 p-4 text-sm text-white"
+                        className="w-full bg-[#050508] border-none border-b border-white/10 focus:border-[#7c5cfc] focus:ring-0 transition-all duration-300 p-4 text-sm text-white focus:outline-none"
                       />
                     </div>
 
@@ -178,7 +201,7 @@ export default function Contact() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="your@email.com"
-                        className="w-full bg-[#0a0f13] border-none border-b border-white/10 focus:border-[#f2ca50] focus:ring-0 transition-all duration-300 p-4 text-sm text-white"
+                        className="w-full bg-[#050508] border-none border-b border-white/10 focus:border-[#7c5cfc] focus:ring-0 transition-all duration-300 p-4 text-sm text-white focus:outline-none"
                       />
                     </div>
 
@@ -190,7 +213,7 @@ export default function Contact() {
                       <select
                         value={service}
                         onChange={(e) => setService(e.target.value)}
-                        className="w-full bg-[#0a0f13] border-none border-b border-white/10 focus:border-[#f2ca50] focus:ring-0 transition-all duration-300 p-4 text-sm text-white select-none"
+                        className="w-full bg-[#050508] border-none border-b border-white/10 focus:border-[#7c5cfc] focus:ring-0 transition-all duration-300 p-4 text-sm text-white select-none focus:outline-none"
                       >
                         <option value="Logo Design">Logo Design</option>
                         <option value="Brand Identity Design">Brand Identity Design</option>
@@ -211,14 +234,14 @@ export default function Contact() {
                         onChange={(e) => setMsg(e.target.value)}
                         placeholder="Tell us about your brand vision..."
                         rows={4}
-                        className="w-full bg-[#0a0f13] border-none border-b border-white/10 focus:border-[#f2ca50] focus:ring-0 transition-all duration-300 p-4 text-sm text-white"
+                        className="w-full bg-[#050508] border-none border-b border-white/10 focus:border-[#7c5cfc] focus:ring-0 transition-all duration-300 p-4 text-sm text-white focus:outline-none"
                       />
                     </div>
 
                     {/* Submit CTA */}
                     <button
                       type="submit"
-                      className="w-full py-5 bg-[#f2ca50] hover:bg-[#d4af37] text-[#0a0f13] font-mono text-xs tracking-widest uppercase font-bold rounded-sm transition-all duration-300 shadow-[0_0_20px_rgba(242,202,80,0.15)] flex items-center justify-center gap-3 hover:scale-[1.01]"
+                      className="w-full py-5 bg-[#7c5cfc] hover:bg-[#6344df] text-white font-mono text-xs tracking-widest uppercase font-bold rounded-sm transition-all duration-300 shadow-[0_0_20px_rgba(124,92,252,0.15)] flex items-center justify-center gap-3 hover:scale-[1.01] cursor-pointer"
                     >
                       Transmit Inquiry
                       <Send size={14} />
@@ -231,7 +254,7 @@ export default function Contact() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="flex flex-col items-center justify-center text-center h-full py-16"
                   >
-                    <CheckCircle2 size={64} className="text-[#f2ca50] mb-6 animate-bounce" />
+                    <CheckCircle2 size={64} className="text-[#7c5cfc] mb-6 animate-bounce" />
                     <h3 className="font-display text-2xl font-bold text-white mb-4">
                       Inquiry Transmitted Successfully
                     </h3>
@@ -240,7 +263,7 @@ export default function Contact() {
                     </p>
                     <button
                       onClick={() => setFormSubmitted(false)}
-                      className="px-6 py-3 border border-white/10 hover:border-[#f2ca50] text-xs font-mono tracking-widest uppercase rounded-sm text-white hover:text-[#f2ca50] transition-colors"
+                      className="px-6 py-3 border border-white/10 hover:border-[#7c5cfc] text-xs font-mono tracking-widest uppercase rounded-sm text-white hover:text-[#7c5cfc] transition-colors cursor-pointer"
                     >
                       Send Another Message
                     </button>

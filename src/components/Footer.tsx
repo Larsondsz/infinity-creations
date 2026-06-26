@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#0a0f13] py-16 px-6 sm:px-12 md:px-24 border-t border-white/[0.04]">
+    <footer className="relative bg-[#050508] py-16 px-6 sm:px-12 md:px-24 border-t border-white/[0.04]">
       
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         
@@ -25,7 +25,7 @@ export default function Footer() {
               viewBox="0 0 34 18"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="text-[#f2ca50]"
+              className="text-[#7c5cfc]"
             >
               <path
                 d="M9,9 C3,3 3,15 9,9 L25,9 C31,3 31,15 25,9 Z"
@@ -51,7 +51,7 @@ export default function Footer() {
         {/* Back To Top Spot */}
         <button
           onClick={handleScrollToTop}
-          className="w-12 h-12 rounded-full border border-white/[0.05] hover:border-[#f2ca50] flex items-center justify-center text-[#99907c] hover:text-[#f2ca50] transition-colors duration-300"
+          className="w-12 h-12 rounded-full border border-white/[0.05] hover:border-[#7c5cfc] flex items-center justify-center text-[#99907c] hover:text-[#7c5cfc] transition-colors duration-300 cursor-pointer"
         >
           <ArrowUp size={16} />
         </button>

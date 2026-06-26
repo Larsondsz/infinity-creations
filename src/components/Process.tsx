@@ -44,31 +44,31 @@ export default function Process() {
   // Helper to render step icons
   const getStepIcon = (index: number) => {
     switch (index) {
-      case 0: return <Compass size={18} className="text-[#f2ca50]" />;
-      case 1: return <Search size={18} className="text-[#f2ca50]" />;
-      case 2: return <Eye size={18} className="text-[#f2ca50]" />;
-      case 3: return <Palette size={18} className="text-[#f2ca50]" />;
-      case 4: return <ShieldCheck size={18} className="text-[#f2ca50]" />;
-      case 5: return <Rocket size={18} className="text-[#f2ca50]" />;
-      default: return <Sparkles size={18} className="text-[#f2ca50]" />;
+      case 0: return <Compass size={18} className="text-[#7c5cfc]" />;
+      case 1: return <Search size={18} className="text-[#7c5cfc]" />;
+      case 2: return <Eye size={18} className="text-[#7c5cfc]" />;
+      case 3: return <Palette size={18} className="text-[#7c5cfc]" />;
+      case 4: return <ShieldCheck size={18} className="text-[#7c5cfc]" />;
+      case 5: return <Rocket size={18} className="text-[#7c5cfc]" />;
+      default: return <Sparkles size={18} className="text-[#7c5cfc]" />;
     }
   };
 
   return (
     <section
       id="process"
-      className="relative py-24 sm:py-32 px-6 sm:px-12 md:px-24 bg-[#1b2025]/20 overflow-hidden"
+      className="relative py-24 sm:py-32 px-6 sm:px-12 md:px-24 bg-[#050508]/20 overflow-hidden"
     >
       {/* Background soft lighting */}
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#f2ca50]/1 blur-[100px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#7c5cfc]/1 blur-[100px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         
         {/* Section header */}
         <div className="flex flex-col items-center text-center mb-24">
           <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles size={14} className="text-[#f2ca50]" />
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#f2ca50]">
+            <Sparkles size={14} className="text-[#7c5cfc]" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#7c5cfc]">
               METHODOLOGY
             </span>
           </div>
@@ -100,10 +100,10 @@ export default function Process() {
                   
                   {/* Left Column (Desktop) */}
                   <div className={`md:w-1/2 flex ${isEven ? 'md:justify-end md:pr-16' : 'md:order-2 md:pl-16'} items-center`}>
-                    <div className={`glass-card p-8 inner-glow max-w-md w-full relative group ${isEven ? 'text-left md:text-right' : 'text-left'}`}>
+                    <div className={`glass-card p-8 inner-glow max-w-md w-full bg-[#0d0d14]/40 border-white/[0.05] relative group ${isEven ? 'text-left md:text-right' : 'text-left'}`}>
                       <div className="flex items-center gap-3 mb-4 md:group-hover:translate-x-1 transition-transform duration-300">
                         {isEven && <span className="hidden md:inline-block ml-auto" />}
-                        <div className="w-8 h-8 rounded-full bg-[#0a0f13] border border-white/[0.05] flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-[#050508] border border-white/[0.05] flex items-center justify-center">
                           {getStepIcon(index)}
                         </div>
                         <h3 className="font-display text-lg font-bold text-white tracking-wide">
@@ -118,7 +118,7 @@ export default function Process() {
 
                   {/* Central Node Badge */}
                   <div className="absolute left-8 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10">
-                    <div className="w-10 h-10 rounded-full bg-[#0a0f13] border-2 border-[#f2ca50] flex items-center justify-center font-mono text-[10px] text-[#f2ca50] font-bold shadow-[0_0_15px_rgba(242,202,80,0.3)]">
+                    <div className="w-10 h-10 rounded-full bg-[#050508] border-2 border-[#7c5cfc] flex items-center justify-center font-mono text-[10px] text-white font-bold shadow-[0_0_15px_rgba(124,92,252,0.3)]">
                       {step.stepNumber}
                     </div>
                   </div>

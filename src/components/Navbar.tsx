@@ -52,7 +52,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
         transition={{ delay: 1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${
           isScrolled
-            ? 'py-4 bg-[#0a0f13]/85 backdrop-blur-md border-b border-white/[0.04]'
+            ? 'py-4 bg-[#050508]/85 backdrop-blur-md border-b border-white/[0.04]'
             : 'py-6 bg-transparent'
         }`}
       >
@@ -72,7 +72,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
                 viewBox="0 0 34 18"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="text-[#f2ca50] group-hover:scale-105 transition-transform duration-300"
+                className="text-[#7c5cfc] group-hover:scale-105 transition-transform duration-300"
               >
                 <path
                   d="M9,9 C3,3 3,15 9,9 L25,9 C31,3 31,15 25,9 Z"
@@ -83,11 +83,11 @@ export default function Navbar({ activeSection }: NavbarProps) {
                 />
               </svg>
               {/* Core glow */}
-              <div className="absolute inset-0 bg-[#f2ca50]/10 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-[#7c5cfc]/10 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 
             {/* Typography */}
-            <span className="font-display font-bold text-lg tracking-[0.25em] text-white group-hover:text-[#f2ca50] transition-colors duration-300 uppercase">
+            <span className="font-display font-bold text-lg tracking-[0.25em] text-white group-hover:text-[#7c5cfc] transition-colors duration-300 uppercase">
               INFINITY
               <span className="font-light text-xs tracking-[0.15em] ml-2 text-[#99907c] group-hover:text-[#dfe3e9] transition-colors duration-300">
                 CREATIONS
@@ -105,9 +105,9 @@ export default function Navbar({ activeSection }: NavbarProps) {
                   href={item.id}
                   onClick={(e) => handleSmoothScroll(e, item.id)}
                   className="relative font-mono text-[11px] tracking-[0.25em] uppercase transition-colors py-1 select-none"
-                  style={{ color: isActive ? '#f2ca50' : '#dfe3e9' }}
+                  style={{ color: isActive ? '#7c5cfc' : '#dfe3e9' }}
                 >
-                  <span className="hover:text-[#f2ca50] transition-colors duration-300">
+                  <span className="hover:text-[#7c5cfc] transition-colors duration-300">
                     {item.name}
                   </span>
                   
@@ -115,7 +115,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
                   {isActive && (
                     <motion.div
                       layoutId="activeNavLine"
-                      className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#f2ca50] to-transparent"
+                      className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#7c5cfc] to-transparent"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -129,7 +129,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
             <a
               href="#contact"
               onClick={(e) => handleSmoothScroll(e, '#contact')}
-              className="px-5 py-2 border border-white/10 hover:border-[#f2ca50] hover:text-[#f2ca50] transition-all duration-500 text-[10px] font-mono tracking-[0.2em] uppercase rounded-sm flex items-center gap-2"
+              className="px-5 py-2 border border-white/10 hover:border-[#7c5cfc] hover:text-[#7c5cfc] transition-all duration-500 text-[10px] font-mono tracking-[0.2em] uppercase rounded-sm flex items-center gap-2"
             >
               Start Project
               <ArrowRight size={12} />
@@ -139,7 +139,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white hover:text-[#f2ca50] transition-colors focus:outline-none p-2"
+            className="md:hidden text-white hover:text-[#7c5cfc] transition-colors focus:outline-none p-2"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -154,7 +154,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="fixed inset-0 top-[68px] z-30 md:hidden bg-[#0a0f13]/98 backdrop-blur-lg flex flex-col justify-between py-12 px-8 border-t border-white/[0.04]"
+            className="fixed inset-0 top-[68px] z-30 md:hidden bg-[#050508]/98 backdrop-blur-lg flex flex-col justify-between py-12 px-8 border-t border-white/[0.04]"
           >
             <div className="flex flex-col gap-6 mt-6">
               {navItems.map((item, index) => (
@@ -165,7 +165,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
                   key={item.name}
                   href={item.id}
                   onClick={(e) => handleSmoothScroll(e, item.id)}
-                  className="font-display text-3xl tracking-widest text-[#dfe3e9] hover:text-[#f2ca50] transition-colors"
+                  className="font-display text-3xl tracking-widest text-[#dfe3e9] hover:text-[#7c5cfc] transition-colors"
                 >
                   {item.name}
                 </motion.a>
@@ -180,7 +180,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               className="border-t border-white/10 pt-8 flex flex-col gap-4"
             >
               <div className="flex items-center gap-2 text-xs text-[#99907c] font-mono">
-                <Sparkles size={12} className="text-[#f2ca50]" />
+                <Sparkles size={12} className="text-[#7c5cfc]" />
                 THANE, MAHARASHTRA
               </div>
               <p className="text-sm text-white font-light">
@@ -189,7 +189,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               <a
                 href="#contact"
                 onClick={(e) => handleSmoothScroll(e, '#contact')}
-                className="w-full text-center py-4 bg-[#f2ca50] text-[#0a0f13] text-xs font-mono tracking-widest uppercase rounded-sm hover:bg-[#d4af37] transition-colors"
+                className="w-full text-center py-4 bg-[#7c5cfc] text-white text-xs font-mono tracking-widest uppercase rounded-sm hover:bg-[#6344df] transition-colors"
               >
                 Inquire Now
               </a>

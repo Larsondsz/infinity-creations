@@ -9,9 +9,9 @@ import { MessageCircle } from 'lucide-react';
 import CinematicIntro from './components/CinematicIntro';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
+import Story from './components/Story';
 import Process from './components/Process';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -47,7 +47,7 @@ export default function App() {
   }, [introComplete]);
 
   return (
-    <div className="relative min-h-screen bg-[#0f1418] text-[#dfe3e9] selection:bg-[#f2ca50] selection:text-[#0a0f13]">
+    <div className="relative min-h-screen bg-[#050508] text-[#dfe3e9] selection:bg-[#7c5cfc] selection:text-white">
       
       {/* Spectacular cinematic particle intro sequence */}
       <CinematicIntro onComplete={() => setIntroComplete(true)} />
@@ -67,9 +67,9 @@ export default function App() {
             {/* Structured Page Components */}
             <main className="flex-grow">
               <Hero />
-              <About />
               <Services />
               <Portfolio />
+              <Story />
               <Process />
               <Contact />
             </main>
@@ -89,7 +89,7 @@ export default function App() {
               className="fixed bottom-8 right-8 z-40 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group cursor-pointer"
             >
               <MessageCircle size={24} className="group-hover:rotate-12 transition-transform" />
-              {/* Gold pulsing halo around the WhatsApp badge */}
+              {/* Purple/green pulsing halo around the WhatsApp badge */}
               <div className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-ping opacity-25 pointer-events-none" />
             </motion.a>
           </motion.div>

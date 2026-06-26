@@ -14,6 +14,12 @@ export interface Project {
   servicesProvided: string[];
   challenge: string;
   solution: string;
+  overview?: string;
+  clientRequirement?: string;
+  designProcess?: string[];
+  softwareUsed?: string[];
+  projectOutcome?: string;
+  galleryImages?: string[];
 }
 
 export interface Service {

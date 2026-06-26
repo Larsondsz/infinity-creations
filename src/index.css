@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", sans-serif;
   --font-mono: "Space Mono", monospace;
 
-  /* Custom palette of Infinity Creations */
-  --color-gold-base: #f2ca50;
-  --color-gold-dark: #d4af37;
-  --color-void: #0f1418;
-  --color-void-deep: #0a0f13;
-  --color-surface-card: rgba(27, 32, 37, 0.6);
-  --color-gold-glow: rgba(242, 202, 80, 0.15);
+  /* Custom luxury palette of Infinity Creations - Minimal Black, White, Purple */
+  --color-gold-base: #a855f7;
+  --color-gold-dark: #7c5cfc;
+  --color-void: #050508;
+  --color-void-deep: #020203;
+  --color-surface-card: rgba(13, 13, 20, 0.6);
+  --color-gold-glow: rgba(124, 92, 252, 0.15);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #0f1418;
+    background-color: #050508;
     color: #dfe3e9;
     font-family: var(--font-sans);
   }
@@ -29,8 +29,8 @@
 
   /* Custom Selection Styling */
   ::selection {
-    background-color: #f2ca50;
-    color: #0a0f13;
+    background-color: #7c5cfc;
+    color: #ffffff;
   }
 
   /* Custom Scrollbar */
@@ -38,36 +38,36 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #0a0f13;
+    background: #020203;
   }
   ::-webkit-scrollbar-thumb {
-    background: #262a2f;
+    background: #181824;
     border-radius: 4px;
-    border: 2px solid #0a0f13;
+    border: 2px solid #020203;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #f2ca50;
+    background: #7c5cfc;
   }
 }
 
 /* Glassmorphism custom components */
 .glass-card {
-  background: rgba(27, 32, 37, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(13, 13, 20, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: #f2ca50;
-  box-shadow: 0 10px 30px rgba(242, 202, 80, 0.05);
+  border-color: rgba(124, 92, 252, 0.4);
+  box-shadow: 0 20px 40px rgba(124, 92, 252, 0.1);
 }
 
 .inner-glow {
-  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.05);
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.03);
 }
 
 .infinity-halo {
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(124, 92, 252, 0.06) 0%, transparent 70%);
 }
